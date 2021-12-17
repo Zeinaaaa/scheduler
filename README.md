@@ -5,7 +5,6 @@ This app is mainly done using REACT.
 
 !["a saved appointment"](https://github.com/Zeinaaaa/scheduler/blob/master/docs/SchedulerAppointment.png)
 
-!["deleting the appointment"](https://github.com/Zeinaaaa/scheduler/blob/master/docs/deleteAdd.png)
 
 ## Setup
 
