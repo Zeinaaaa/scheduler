@@ -1,5 +1,8 @@
 # Interview Scheduler
 
+Interview Scheduler is a single-page web application. Students can book an interview with a mentor, edit, delete the interview. 
+This app is mainly done using REACT.
+
 ## Setup
 
 Install dependencies with `npm install`.
