@@ -14,6 +14,7 @@ export default function useVisualMode(initial) {
     } else {
       setHistory(prev => [...prev, newMode]);
     }
+
   };
 
   /**
@@ -24,11 +25,18 @@ export default function useVisualMode(initial) {
     if (history.length <= 1) {
       return;
     }
-
+    setHistory(prev => {
+      const newHistory = [...prev]
+      newHistory.pop()
+      return newHistory;
+    });
     // Go back to the second last mode of the history
-    setMode(history[history.length - 2]);
+    setMode(prev => {
+      console.log(history);
+      return history[history.length - 2]
+    });
     // Remove the last mode of history
-    setHistory(history.slice(0, -1));
+    
   };
 
   return { mode, transition, back };

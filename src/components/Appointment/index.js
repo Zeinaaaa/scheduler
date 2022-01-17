@@ -33,11 +33,9 @@ export default function Appointment(props) {
       interviewer
     };
     transition(SAVING, false);
-    setTimeout(() => {
       props.bookInterview(props.id, interview, edit)
-        .then(() => transition(SHOW, true))
+        .then(() => transition(SHOW, false))
         .catch(() => transition(ERROR_SAVE, true))
-    }, 1000);
   };
 
   function deleteApp() {
@@ -45,16 +43,10 @@ export default function Appointment(props) {
   };
   
   function confirm(confirm) {  //confirm ? yes, delete it : no, don't
-    if (confirm) {
-      transition(DELETING, false);
-      setTimeout(() => {
+      transition(DELETING, true);
          props.cancelInterview(props.id)
-          .then(() => transition(EMPTY, true))
+          .then(() => transition(EMPTY, false))
           .catch(() => transition(ERROR_DELETE, true))
-      }, 1000);
-    } else {
-      transition(SHOW, true);
-    }
   };
 
 
@@ -69,7 +61,7 @@ export default function Appointment(props) {
           <Confirm 
             message={"Delete the appointment?"} 
             onConfirm={confirm}
-            onCancel={confirm}
+            onCancel={() => back()}
           />
         )}
         {mode === SHOW && (
